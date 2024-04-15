@@ -1,12 +1,13 @@
 
 <header class="products-header">
     <div class="logo-header">
-        <img src="public/img/sla.png" alt="">
+        <img src="../../public/img/sla.png" alt="">
         <p>oBoticário</p>
     </div>
     <div class="nav">
         <a class="link" href="https://www.boticario.com.br/?ds_rl=1270144&utm_source=google&utm_medium=cpc&utm_campaign=2026769738_77242686892&gad_source=1&ds_rl=1270144&gclid=Cj0KCQjw2uiwBhCXARIsACMvIU2og8J44grLh-TvwHXkoC4MCPh4X7PMe6gBNnkOZYgH6sQ6Yz3RQgQaAmP1EALw_wcB&gclsrc=aw.ds">Loja</a>
-        <a class="link" href="#">Sobre</a>
+        <a class="link" href="inserirProdutoForm.php">Cadastrar</a>
+        <a class="link" href="exibirProdutos.php">Listar</a>
         <a class="link" href="#">Sair</a>
     </div>
     <label class="hamburger">

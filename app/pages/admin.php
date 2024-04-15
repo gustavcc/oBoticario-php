@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Admin | oBoticario</title>
+    <title>Admin</title>
 
     <link rel="icon" href="../../public/img/sla.png">
     <link rel="stylesheet" href="../../public/css/style.css">
+    <link rel="stylesheet" href="../../public/css/base.css">
     <!-- <script src="../../public/js/main.js" defer></script> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,11 +22,11 @@
 </head>
 <body>
     <?php
-    header("Location: cabecalho.php");
+    require_once("cabecalho.php");
     ?>
     <main>
         <a href="inserirProdutoForm.php">Cadastro Produto</a>
-        <a href="listarProdutos.php">Listar Produtos</a>
+        <a href="exibirProdutos.php">Listar Produtos</a>
     </main>
 </body>
 </html>
