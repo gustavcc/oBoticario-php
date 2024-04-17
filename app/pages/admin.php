@@ -22,7 +22,7 @@
 </head>
 <body>
     <?php
-    require_once("cabecalho.php");
+    require_once("cabecalhoAdmin.php");
     ?>
     <main>
         <a href="inserirProdutoForm.php">Cadastro Produto</a>
