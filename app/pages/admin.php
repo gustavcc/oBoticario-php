@@ -8,8 +8,7 @@
     <title>Admin</title>
 
     <link rel="icon" href="../../public/img/sla.png">
-    <link rel="stylesheet" href="../../public/css/style.css">
-    <link rel="stylesheet" href="../../public/css/base.css">
+    <link rel="stylesheet" href="../../public/css/admin.css">
     <!-- <script src="../../public/js/main.js" defer></script> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

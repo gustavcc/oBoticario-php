@@ -16,39 +16,41 @@ if(!isset($_FILES['imagem']) && $_FILES['imagem']['error'] != 0){
 }else{
 
     // Verifica se o arquivo é uma imagem
-    $mime_type = mime_content_type($_FILES["imagem"]["tmp_name"]);
-    if (substr($mime_type, 0, 5) !== 'image') {
-        echo "O arquivo enviado não é uma imagem válida.";
-        exit;
-    }
+    
 
     $nome = $_POST['nome'];
-    $imagemConteudo = fopen($_FILES["imagem"]["tmp_name"], 'rb');
+    $imagem = $_FILES["imagem"];
     $descricao = $_POST['descricao'];
     $preco = $_POST['preco'];
 
-    conecta();
+    $arquivoType = explode('.',$imagem['name']);
 
-    $sql = "INSERT INTO produto(imagem,nome,descricao,preco)VALUES(?,?,?,?);";
+    if (($arquivoType[sizeof($arquivoType)-1] == 'jpeg') || ($arquivoType[sizeof($arquivoType)-1] == 'png') || ($arquivoType[sizeof($arquivoType)-1] == 'jpg')){
+        $imagemBin = file_get_contents($imagem['tmp_name']);
 
-    $stmt = $mysqli->prepare($sql);
+        move_uploaded_file($imagem['tmp_name'],'../../public/products/'.$imagem['name']);
 
-    if(!$stmt){
-        die("Erro ao inserir.Problema no acesso ao banco de dados");
+        conecta();
+
+        $sql = "INSERT INTO produto(imagem,nome,descricao,preco)VALUES(?,?,?,?);";
+
+        $stmt = $mysqli->prepare($sql);
+        if(!$stmt){
+            die("Erro ao inserir.Problema no acesso ao banco de dados");
+        }
+        $stmt->bind_param("bsss",$imagemBin,$nome,$descricao,$preco);
+        $stmt->execute();
+
+        if($stmt->affected_rows > 0){
+            $msg = "Produto cadastrado com sucesso.";
+        }else{
+            $msg = "Não foi possível inserir.";
+        }
+
+        desconecta();
+    } else {
+        $msg = $arquivoType[sizeof($arquivoType)-1];
     }
-
-    $stmt->bind_param("bsss",$imagemConteudo,$nome,$descricao,$preco);
-    $stmt->execute();
-
-    fclose($imagemConteudo);
-
-    if($stmt->affected_rows > 0){
-        $msg = "Produto cadastrado com sucesso.";
-    }else{
-        $msg = "Não foi possível inserir.";
-    }
-
-    desconecta();
 }
 
 header("Location: ../pages/inserirProdutoForm.php?msg={$msg}");
