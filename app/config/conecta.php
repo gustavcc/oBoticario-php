@@ -21,5 +21,3 @@ function desconecta(){
     global $mysqli;
     $mysqli->close();
 }
-
-conecta();

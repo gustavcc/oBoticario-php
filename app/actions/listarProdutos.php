@@ -5,7 +5,7 @@ require_once("../config/conecta.php");
 
 conecta();
 
-$sql = "SELECT id_produto, imagem, nome, descricao, preco  FROM produto;";
+$sql = "SELECT id_produto, path_img, nome, descricao, preco  FROM produto;";
 
 $result = $mysqli->query($sql);
 

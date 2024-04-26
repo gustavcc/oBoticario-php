@@ -77,7 +77,30 @@
         </header>
         <div class="products">
             <div id="boxes" class="boxes">
-
+                <?php
+                require_once("../actions/listarProdutos.php");
+                if(!isset($listaProdutos)){
+                    echo "Nenhum registro encontrado.";
+                }else{
+                    foreach($listaProdutos as $produto){
+                        $nome = $produto['nome'];
+                        $id = $produto['id_produto'];
+                        $imagem = $produto['path_img'];
+                        $descricao = $produto['descricao'];
+                        $preco = $produto['preco'];
+                        echo "<div id='{$id}' class='box'>"; 
+                        echo "<div class='imagem-product'>";
+                        echo "<img src='{$imagem}' alt='product'>";
+                        echo "</div> <p>{$nome}</p>"; 
+                        echo "<div class='preco-carrinho'>"; 
+                        echo "<h3>$ {$preco}</h3>";
+                        echo "<i class='fa-solid fa-cart-plus'></i>"; 
+                        echo "</div>"; 
+                        echo "<div class='comprar'> Comprar </div>"; 
+                        echo "</div>";
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>

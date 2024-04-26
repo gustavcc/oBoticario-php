@@ -23,9 +23,8 @@
             }  
             ?>
             <div class="box">
-                <label for="imagem">Selecione uma imagem:</label>
-                <input id="imagem_file" type="file" name="imagem">
-                <!-- accept="image/*" -->
+                <label>Selecione uma imagem:</label>
+                <input id="imagem_file" type="file" name="imagem" accept="image/">
             </div>
             <div class="box">
                 <label for="nome">Nome:</label>

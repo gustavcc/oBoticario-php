@@ -17,7 +17,7 @@
     require_once("../actions/listarProdutos.php");
     ?>
     <main>
-        <h1>Lista de pessoas</h1>
+        <h1>Lista de Produtos</h1>
 
         <?php
             if(!isset($listaProdutos)){
@@ -27,10 +27,10 @@
                 foreach($listaProdutos as $produto){
                     $nome = $produto['nome'];
                     $id = $produto['id_produto'];
-                    $imagem = $produto['imagem'];
+                    $imagem = $produto['path_img'];
                     $descricao = $produto['descricao'];
                     $preco = $produto['preco'];
-                    echo "<tr><td>$id</td><td>{$nome}</td><td><img src='data:image/jpeg;base64,<?= base64_encode({$imagem}) ?>'/></td><td>{$descricao}</td><td>{$preco}</td><td><a href='editProduto.php?produto={$id}'>Edit</a></td><td><a href='../actions/excluirProduto.php?produto={$id}'>Delete</a></td></tr>";
+                    echo "<tr><td>$id</td><td>{$nome}</td><td><div class='img_view' ><img src='{$imagem}'/> </div></td><td>{$descricao}</td><td>{$preco}</td><td><a href='editProduto.php?produto={$id}'>Edit</a></td><td><a href='../actions/excluirProduto.php?produto={$id}'>Delete</a></td></tr>";
                 }
                 echo "</table>";
             }

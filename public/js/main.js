@@ -58,72 +58,72 @@ updateSlider();
 
 setInterval(updateSlider, 4000);
 
-var listProducts = [
-    {
-        id: 1,
-        imagem: '../../public/img/azul.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 2,
-        imagem: '../../public/img/azul.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 3,
-        imagem: '../../public/img/azul.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 4,
-        imagem: '../../public/img/verde.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 5,
-        imagem: '../../public/img/verde.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 6,
-        imagem: '../../public/img/verde.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 7,
-        imagem: '../../public/img/vermelho-batom.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-    {
-        id: 8,
-        imagem: '../../public/img/logorosa.png',
-        descricao: 'Perfume oBoticario',
-        preco: '49,99',
-    },
-]
+// var listProducts = [
+//     {
+//         id: 1,
+//         imagem: '../../public/img/azul.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 2,
+//         imagem: '../../public/img/azul.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 3,
+//         imagem: '../../public/img/azul.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 4,
+//         imagem: '../../public/img/verde.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 5,
+//         imagem: '../../public/img/verde.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 6,
+//         imagem: '../../public/img/verde.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 7,
+//         imagem: '../../public/img/vermelho-batom.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+//     {
+//         id: 8,
+//         imagem: '../../public/img/logorosa.png',
+//         descricao: 'Perfume oBoticario',
+//         preco: '49,99',
+//     },
+// ]
 
-for (product of listProducts) {
-    const box = `
-    <div id="${product.id}" class="box">
-        <div class="imagem-product">
-            <img src="${product.imagem}" alt="product">
-        </div>
-        <p>${product.descricao}</p>
-        <div class="preco-carrinho">
-            <h3>$${product.preco}</h3>
-            <i class="fa-solid fa-cart-plus"></i>
-        </div>
-        <div class="comprar">
-            Comprar
-        </div>
-    </div>`;
+// for (product of listProducts) {
+//     const box = `
+//     <div id="${product.id}" class="box">
+//         <div class="imagem-product">
+//             <img src="${product.imagem}" alt="product">
+//         </div>
+//         <p>${product.descricao}</p>
+//         <div class="preco-carrinho">
+//             <h3>$${product.preco}</h3>
+//             <i class="fa-solid fa-cart-plus"></i>
+//         </div>
+//         <div class="comprar">
+//             Comprar
+//         </div>
+//     </div>`;
 
-    document.getElementById('boxes').innerHTML += box;
-}
+//     document.getElementById('boxes').innerHTML += box;
+// }

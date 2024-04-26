@@ -5,7 +5,7 @@ require_once("../config/conecta.php");
 $msg;
 
 if(!isset($_FILES['imagem']) && $_FILES['imagem']['error'] != 0){
-    $msg = "Selecione uma imagem";
+    $msg = "Selecione uma imagem!";
 }elseif(empty($_POST['nome'])){
     $msg = "Preencha o nome";
 }elseif(empty($_POST['descricao'])){
@@ -16,7 +16,7 @@ if(!isset($_FILES['imagem']) && $_FILES['imagem']['error'] != 0){
 }else{
 
     // Verifica se o arquivo é uma imagem
-    
+
 
     $nome = $_POST['nome'];
     $imagem = $_FILES["imagem"];
@@ -25,20 +25,21 @@ if(!isset($_FILES['imagem']) && $_FILES['imagem']['error'] != 0){
 
     $arquivoType = explode('.',$imagem['name']);
 
-    if (($arquivoType[sizeof($arquivoType)-1] == 'jpeg') || ($arquivoType[sizeof($arquivoType)-1] == 'png') || ($arquivoType[sizeof($arquivoType)-1] == 'jpg')){
-        $imagemBin = file_get_contents($imagem['tmp_name']);
+    if (($arquivoType[sizeof($arquivoType)-1] == 'png') OR ($arquivoType[sizeof($arquivoType)-1] == 'jpeg') OR ($arquivoType[sizeof($arquivoType)-1] == 'jpg')){
 
-        move_uploaded_file($imagem['tmp_name'],'../../public/products/'.$imagem['name']);
+        $imagemDB = "../../public/img/products/".$_FILES["imagem"]["name"];
+
+        move_uploaded_file($imagem["tmp_name"], "../../public/img/products/".$_FILES["imagem"]["name"]);
 
         conecta();
 
-        $sql = "INSERT INTO produto(imagem,nome,descricao,preco)VALUES(?,?,?,?);";
+        $sql = "INSERT INTO produto(path_img,nome,descricao,preco)VALUES(?,?,?,?);";
 
         $stmt = $mysqli->prepare($sql);
         if(!$stmt){
             die("Erro ao inserir.Problema no acesso ao banco de dados");
         }
-        $stmt->bind_param("bsss",$imagemBin,$nome,$descricao,$preco);
+        $stmt->bind_param("ssss",$imagemDB,$nome,$descricao,$preco);
         $stmt->execute();
 
         if($stmt->affected_rows > 0){
@@ -49,7 +50,7 @@ if(!isset($_FILES['imagem']) && $_FILES['imagem']['error'] != 0){
 
         desconecta();
     } else {
-        $msg = $arquivoType[sizeof($arquivoType)-1];
+        $msg = "Selecione um arquivo válido!";
     }
 }
 
