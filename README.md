@@ -1,4 +1,4 @@
-# oBoticario_PHP
+# O Boticário - Onde tem amor, tem beleza
 
 Porjeto pessoal - O Boticário: um clone da loja oficial da marca (sem propaganda), usando apenas PHP, JS, HTML e CSS.
 
