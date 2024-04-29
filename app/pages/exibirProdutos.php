@@ -30,7 +30,7 @@
                     $imagem = $produto['path_img'];
                     $descricao = $produto['descricao'];
                     $preco = $produto['preco'];
-                    echo "<tr><td>$id</td><td>{$nome}</td><td><div class='img_view' ><img src='{$imagem}'/> </div></td><td>{$descricao}</td><td>{$preco}</td><td><a href='editProduto.php?produto={$id}'>Edit</a></td><td><a href='../actions/excluirProduto.php?produto={$id}'>Delete</a></td></tr>";
+                    echo "<tr><td>$id</td><td>{$nome}</td><td><div class='img_view' > <a href='viewProduto.php?produto{$id}'><img src='{$imagem}'/> </a> </div></td><td>{$descricao}</td><td>{$preco}</td><td><a href='editProduto.php?produto={$id}'>Edit</a></td><td><a href='../actions/excluirProduto.php?produto={$id}'>Delete</a></td></tr>";
                 }
                 echo "</table>";
             }
